@@ -15,8 +15,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.lijunyan.blackmusic.R;
-import com.lijunyan.blackmusic.fragment.AlbumFragment;
-import com.lijunyan.blackmusic.fragment.FolderFragment;
 import com.lijunyan.blackmusic.fragment.SingerFragment;
 import com.lijunyan.blackmusic.fragment.SingleFragment;
 import com.lijunyan.blackmusic.util.Constant;
@@ -36,8 +34,8 @@ public class LocalMusicActivity extends PlayBarBaseActivity {
     private List<Fragment> fragments = new ArrayList<>(4);
     private SingleFragment singleFragment;
     private SingerFragment singerFragment;
-    private AlbumFragment albumFragment;
-    private FolderFragment folderFragment;
+    //private AlbumFragment albumFragment;
+    //private FolderFragment folderFragment;
     private TextView nothingTv;
 
     @Override
@@ -95,8 +93,8 @@ public class LocalMusicActivity extends PlayBarBaseActivity {
     private void addTapData() {
         titleList.add("单曲");
         titleList.add("歌手");
-        titleList.add("专辑");
-        titleList.add("文件夹");
+//        titleList.add("专辑");
+//        titleList.add("文件夹");
 
         if (singleFragment == null) {
             singleFragment = new SingleFragment();
@@ -106,14 +104,15 @@ public class LocalMusicActivity extends PlayBarBaseActivity {
             singerFragment = new SingerFragment();
             fragments.add(singerFragment);
         }
-        if (albumFragment == null) {
-            albumFragment = new AlbumFragment();
-            fragments.add(albumFragment);
-        }
-        if (folderFragment == null) {
-            folderFragment = new FolderFragment();
-            fragments.add(folderFragment);
-        }
+        //1.08删除Frament中的专辑和文件分类
+//        if (albumFragment == null) {
+//            albumFragment = new AlbumFragment();
+//            fragments.add(albumFragment);
+//        }
+//        if (folderFragment == null) {
+//            folderFragment = new FolderFragment();
+//            fragments.add(folderFragment);
+//        }
     }
 
 

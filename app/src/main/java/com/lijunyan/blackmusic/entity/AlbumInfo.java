@@ -6,7 +6,7 @@ import android.os.Parcelable;
 /**
  * Created by lijunyan on 2017/3/11.
  */
-
+//1.08删除专辑 和文件
 public class AlbumInfo implements Parcelable {
     private String name;
     private String singer;

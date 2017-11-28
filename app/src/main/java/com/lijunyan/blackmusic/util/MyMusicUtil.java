@@ -14,8 +14,8 @@ import android.widget.Toast;
 import com.lijunyan.blackmusic.R;
 import com.lijunyan.blackmusic.activity.ThemeActivity;
 import com.lijunyan.blackmusic.database.DBManager;
-import com.lijunyan.blackmusic.entity.AlbumInfo;
-import com.lijunyan.blackmusic.entity.FolderInfo;
+//import com.lijunyan.blackmusic.entity.AlbumInfo;
+//import com.lijunyan.blackmusic.entity.FolderInfo;
 import com.lijunyan.blackmusic.entity.MusicInfo;
 import com.lijunyan.blackmusic.entity.SingerInfo;
 import com.lijunyan.blackmusic.service.MusicPlayerService;
@@ -235,61 +235,61 @@ public class MyMusicUtil {
         return singerInfoList;
     }
 
-    //按专辑分组
-    public static ArrayList<AlbumInfo> groupByAlbum(ArrayList list) {
-        Map<String, List<MusicInfo>> musicMap = new HashMap<>();
-        ArrayList<AlbumInfo> albumInfoList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            MusicInfo musicInfo = (MusicInfo) list.get(i);
-            if (musicMap.containsKey(musicInfo.getAlbum())) {
-                ArrayList albumList = (ArrayList) musicMap.get(musicInfo.getAlbum());
-                albumList.add(musicInfo);
-            } else {
-                ArrayList temp = new ArrayList();
-                temp.add(musicInfo);
-                musicMap.put(musicInfo.getAlbum(), temp);
-            }
-        }
+//    //按专辑分组
+//    public static ArrayList<AlbumInfo> groupByAlbum(ArrayList list) {
+//        Map<String, List<MusicInfo>> musicMap = new HashMap<>();
+//        ArrayList<AlbumInfo> albumInfoList = new ArrayList<>();
+//        for (int i = 0; i < list.size(); i++) {
+//            MusicInfo musicInfo = (MusicInfo) list.get(i);
+//            if (musicMap.containsKey(musicInfo.getAlbum())) {
+//                ArrayList albumList = (ArrayList) musicMap.get(musicInfo.getAlbum());
+//                albumList.add(musicInfo);
+//            } else {
+//                ArrayList temp = new ArrayList();
+//                temp.add(musicInfo);
+//                musicMap.put(musicInfo.getAlbum(), temp);
+//            }
+//        }
+//
+//        for (Map.Entry<String,List<MusicInfo>> entry : musicMap.entrySet()) {
+//            AlbumInfo albumInfo = new AlbumInfo();
+//            albumInfo.setName(entry.getKey());
+//            albumInfo.setSinger(entry.getValue().get(0).getSinger());
+//            albumInfo.setCount(entry.getValue().size());
+//            albumInfoList.add(albumInfo);
+//        }
+//
+//        return albumInfoList;
+//    }
 
-        for (Map.Entry<String,List<MusicInfo>> entry : musicMap.entrySet()) {
-            AlbumInfo albumInfo = new AlbumInfo();
-            albumInfo.setName(entry.getKey());
-            albumInfo.setSinger(entry.getValue().get(0).getSinger());
-            albumInfo.setCount(entry.getValue().size());
-            albumInfoList.add(albumInfo);
-        }
+//    //按文件夹分组
+//    public static ArrayList<FolderInfo> groupByFolder(ArrayList list) {
+//        Map<String, List<MusicInfo>> musicMap = new HashMap<>();
+//        ArrayList<FolderInfo> folderInfoList = new ArrayList<>();
+//        for (int i = 0; i < list.size(); i++) {
+//            MusicInfo musicInfo = (MusicInfo) list.get(i);
+//            if (musicMap.containsKey(musicInfo.getParentPath())) {
+//                ArrayList folderList = (ArrayList) musicMap.get(musicInfo.getParentPath());
+//                folderList.add(musicInfo);
+//            } else {
+//                ArrayList temp = new ArrayList();
+//                temp.add(musicInfo);
+//                musicMap.put(musicInfo.getParentPath(), temp);
+//            }
+//        }
+//
+//        for (Map.Entry<String,List<MusicInfo>> entry : musicMap.entrySet()) {
+//            System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
+//            FolderInfo folderInfo = new FolderInfo();
+//            File file = new File(entry.getKey());
+//            folderInfo.setName(file.getName());
+//            folderInfo.setPath(entry.getKey());
+//            folderInfo.setCount(entry.getValue().size());
+//            folderInfoList.add(folderInfo);
+//        }
 
-        return albumInfoList;
-    }
-
-    //按文件夹分组
-    public static ArrayList<FolderInfo> groupByFolder(ArrayList list) {
-        Map<String, List<MusicInfo>> musicMap = new HashMap<>();
-        ArrayList<FolderInfo> folderInfoList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            MusicInfo musicInfo = (MusicInfo) list.get(i);
-            if (musicMap.containsKey(musicInfo.getParentPath())) {
-                ArrayList folderList = (ArrayList) musicMap.get(musicInfo.getParentPath());
-                folderList.add(musicInfo);
-            } else {
-                ArrayList temp = new ArrayList();
-                temp.add(musicInfo);
-                musicMap.put(musicInfo.getParentPath(), temp);
-            }
-        }
-
-        for (Map.Entry<String,List<MusicInfo>> entry : musicMap.entrySet()) {
-            System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
-            FolderInfo folderInfo = new FolderInfo();
-            File file = new File(entry.getKey());
-            folderInfo.setName(file.getName());
-            folderInfo.setPath(entry.getKey());
-            folderInfo.setCount(entry.getValue().size());
-            folderInfoList.add(folderInfo);
-        }
-
-        return folderInfoList;
-    }
+  //      return folderInfoList;
+ //   }
 
     //设置主题
     public static void setTheme(Context context, int position) {
