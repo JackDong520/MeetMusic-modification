@@ -29,7 +29,7 @@ import com.lijunyan.blackmusic.database.DBManager;
 import com.lijunyan.blackmusic.entity.PlayListInfo;
 import com.lijunyan.blackmusic.service.MusicPlayerService;
 import com.lijunyan.blackmusic.util.Constant;
-import com.lijunyan.blackmusic.util.HttpUtil;
+
 import com.lijunyan.blackmusic.util.MyApplication;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 
@@ -299,31 +299,37 @@ public class HomeActivity extends PlayBarBaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void loadBingPic(){
-        HttpUtil.sendOkHttpRequest(HttpUtil.requestBingPic, new Callback() {
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    final String bingPic = response.body().string();
-                    MyMusicUtil.setBingShared(bingPic);
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Glide.with(MyApplication.getContext()).load(bingPic).into(navHeadIv);
-                        }
-                    });
-                }catch (Exception e){
-                    e.printStackTrace();
-                    navHeadIv.setImageResource(R.drawable.bg_playlist);
-                }
-            }
+//版本1.06删除网络加载接口
+//    private void loadBingPic(){
+//        HttpUtil.sendOkHttpRequest(HttpUtil.requestBingPic, new Callback() {
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                try {
+//                    final String bingPic = response.body().string();
+//                    MyMusicUtil.setBingShared(bingPic);
+//                    runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            Glide.with(MyApplication.getContext()).load(bingPic).into(navHeadIv);
+//                        }
+//                    });
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//                    navHeadIv.setImageResource(R.drawable.bg_playlist);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                e.printStackTrace();
+//                navHeadIv.setImageResource(R.drawable.bg_playlist);
+//            }
+//        });
+//        navHeadIv.setImageResource(R.drawable.bg_playlist);
+//    }
+private void loadBingPic() {
+    //Glide.with(MyApplication.getContext()).load(R.drawable.album).into(navHeadIv);
+    navHeadIv.setImageResource(R.drawable.bg_playlist);
+}
 
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-                navHeadIv.setImageResource(R.drawable.bg_playlist);
-            }
-        });
-        navHeadIv.setImageResource(R.drawable.bg_playlist);
-    }
 }

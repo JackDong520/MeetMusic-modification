@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.lijunyan.blackmusic.R;
 import com.lijunyan.blackmusic.database.DBManager;
-import com.lijunyan.blackmusic.util.HttpUtil;
+
 import com.lijunyan.blackmusic.util.MyApplication;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 
@@ -49,31 +49,35 @@ public class WelcomeActivity extends BaseActivity {
 
     }
 
-
-    private void loadBingPic(){
-        HttpUtil.sendOkHttpRequest(HttpUtil.requestBingPic, new Callback() {
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    final String bingPic = response.body().string();
-                    MyMusicUtil.setBingShared(bingPic);
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Glide.with(MyApplication.getContext()).load(bingPic).into(bingIv);
-                        }
-                    });
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-        });
+//版本1.06删除网络加载接口
+//    private void loadBiingPic(){
+//        HttpUtil.sendOkHttpRequest(HttpUtil.requestBingPic, new Callback() {
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                try {
+//                    final String bingPic = response.body().string();
+//                    MyMusicUtil.setBingShared(bingPic);
+//                    runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            Glide.with(MyApplication.getContext()).load(bingPic).into(bingIv);
+//                        }
+//                    });
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//    }
+    private void loadBingPic() {
+        Glide.with(MyApplication.getContext()).load(R.drawable.album).into(bingIv);
     }
+
 
     private void checkSkip() {
         Timer timer = new Timer();

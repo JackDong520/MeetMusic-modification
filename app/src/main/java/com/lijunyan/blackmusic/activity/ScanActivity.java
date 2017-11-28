@@ -26,7 +26,7 @@ import com.lijunyan.blackmusic.util.ChineseToEnglish;
 import com.lijunyan.blackmusic.util.Constant;
 import com.lijunyan.blackmusic.util.CustomAttrValueUtil;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
-import com.lijunyan.blackmusic.util.SelectorUtil;
+//版本1.06 删除SelectorUtil import com.lijunyan.blackmusic.util.SelectorUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -62,7 +62,7 @@ public class ScanActivity extends BaseActivity {
         setContentView(R.layout.activity_scan);
         dbManager = DBManager.getInstance(ScanActivity.this);
         scanBtn = (Button) findViewById(R.id.start_scan_btn);
-        setScanBtnBg();
+        //版本1.06 删除SelectorUtilsetScanBtnBg();
         toolbar = (Toolbar) findViewById(R.id.scan_music_toolbar);
         scanProgressTv = (TextView) findViewById(R.id.scan_progress);
         scanCountTv = (TextView) findViewById(R.id.scan_count);
@@ -282,14 +282,14 @@ public class ScanActivity extends BaseActivity {
         }
 
     }
-
-    private void setScanBtnBg(){
-        int defColor = CustomAttrValueUtil.getAttrColorValue(R.attr.colorAccent,R.color.colorAccent,this);
-        int pressColor = CustomAttrValueUtil.getAttrColorValue(R.attr.press_color,R.color.colorAccent,this);
-        Drawable backgroundDrawable =  scanBtn.getBackground();
-        StateListDrawable sld = (StateListDrawable) backgroundDrawable;// 通过向下转型，转回原型，selector对应的Java类为：StateListDrawable
-        SelectorUtil.changeViewColor(sld,new int[]{pressColor,defColor});
-    }
+//版本1.06 删除SelectorUtil
+//    private void setScanBtnBg(){
+//        int defColor = CustomAttrValueUtil.getAttrColorValue(R.attr.colorAccent,R.color.colorAccent,this);
+//        int pressColor = CustomAttrValueUtil.getAttrColorValue(R.attr.press_color,R.color.colorAccent,this);
+//        Drawable backgroundDrawable =  scanBtn.getBackground();
+//        StateListDrawable sld = (StateListDrawable) backgroundDrawable;// 通过向下转型，转回原型，selector对应的Java类为：StateListDrawable
+//        SelectorUtil.changeViewColor(sld,new int[]{pressColor,defColor});
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

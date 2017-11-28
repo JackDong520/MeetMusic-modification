@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 /**
  * Created by lijunyan on 2017/6/3.
  */
-
+////版本1.06 删除SelectorUtil
 public class SelectorUtil {
 
     private static final String TAG = "SelectorUtil";
