@@ -47,7 +47,6 @@ public class ScanActivity extends BaseActivity {
     private TextView scanPathTv;
     private TextView scanCountTv;
     private CheckBox filterCb;
-    private ScanView scanView;
     private Handler handler;
     private Message msg;
     private String scanPath;
@@ -70,7 +69,7 @@ public class ScanActivity extends BaseActivity {
         scanCountTv = (TextView) findViewById(R.id.scan_count);
         scanPathTv = (TextView) findViewById(R.id.scan_path);
         filterCb = (CheckBox) findViewById(R.id.scan_filter_cb);
-        scanView = (ScanView) findViewById(R.id.scan_view);
+       // scanView = (ScanView) findViewById(R.id.scan_view);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -83,12 +82,10 @@ public class ScanActivity extends BaseActivity {
                     scanPathTv.setVisibility(View.VISIBLE);
                     scanning = true;
                     startScanLocalMusic();
-                    scanView.start();
                     scanBtn.setText("停止扫描");
                 } else {
                     scanPathTv.setVisibility(View.GONE);
                     scanning = false;
-                    scanView.stop();
                     scanCountTv.setText("");
                     scanBtn.setText("开始扫描");
                 }
@@ -135,7 +132,7 @@ public class ScanActivity extends BaseActivity {
                 }
             }
         });
-        scanView.stop();
+
     }
     public void startScanLocalMusic() {
         new Thread() {
