@@ -27,7 +27,6 @@ import com.lijunyan.blackmusic.util.Constant;
 import com.lijunyan.blackmusic.util.CustomAttrValueUtil;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 import com.lijunyan.blackmusic.util.SelectorUtil;
-import com.lijunyan.blackmusic.view.ScanView;
 
 import java.io.File;
 import java.util.ArrayList;
