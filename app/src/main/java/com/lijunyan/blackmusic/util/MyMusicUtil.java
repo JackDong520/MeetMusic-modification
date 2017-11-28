@@ -12,7 +12,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.lijunyan.blackmusic.R;
-import com.lijunyan.blackmusic.activity.ThemeActivity;
+//import com.lijunyan.blackmusic.activity.ThemeActivity;
 import com.lijunyan.blackmusic.database.DBManager;
 //import com.lijunyan.blackmusic.entity.AlbumInfo;
 //import com.lijunyan.blackmusic.entity.FolderInfo;
@@ -290,14 +290,14 @@ public class MyMusicUtil {
  //   }
 
     //设置主题
-    public static void setTheme(Context context, int position) {
-        int preSelect = getTheme(context);
-        SharedPreferences sharedPreferences = context.getSharedPreferences(Constant.THEME, Context.MODE_PRIVATE);
-        sharedPreferences.edit().putInt("theme_select", position).commit();
-        if (preSelect != ThemeActivity.THEME_SIZE - 1) {
-            sharedPreferences.edit().putInt("pre_theme_select", preSelect).commit();
-        }
-    }
+//    public static void setTheme(Context context, int position) {
+//        int preSelect = getTheme(context);
+//        SharedPreferences sharedPreferences = context.getSharedPreferences(Constant.THEME, Context.MODE_PRIVATE);
+//        sharedPreferences.edit().putInt("theme_select", position).commit();
+//        if (preSelect != ThemeActivity.THEME_SIZE - 1) {
+//            sharedPreferences.edit().putInt("pre_theme_select", preSelect).commit();
+//        }
+//    }
 
 
     //得到主题

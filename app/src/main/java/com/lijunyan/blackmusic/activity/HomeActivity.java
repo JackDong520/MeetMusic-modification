@@ -83,35 +83,36 @@ public class HomeActivity extends PlayBarBaseActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.drawer_menu);
         }
-        refreshNightModeTitle();
+        //版本更新 1.10refreshNightModeTitle();
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 mDrawerLayout.closeDrawers();
                 switch (item.getItemId()){
-                    case R.id.nav_theme:
-                        isStartTheme = true;
-                        Intent intentTheme = new Intent(HomeActivity.this,ThemeActivity.class);
-                        startActivity(intentTheme);
-                        break;
-                    case R.id.nav_night_mode:
-                        int preTheme = 0;
-                        if(MyMusicUtil.getNightMode(HomeActivity.this)){
-                            //当前为夜间模式，则恢复之前的主题
-                            MyMusicUtil.setNightMode(HomeActivity.this,false);
-                            preTheme = MyMusicUtil.getPreTheme(HomeActivity.this);
-                            MyMusicUtil.setTheme(HomeActivity.this,preTheme);
-                        }else {
-                            //当前为白天模式，则切换到夜间模式
-                            MyMusicUtil.setNightMode(HomeActivity.this,true);
-                            MyMusicUtil.setTheme(HomeActivity.this,ThemeActivity.THEME_SIZE-1);
-                        }
-//                        Intent intentNight = new Intent(HomeActivity.this,HomeActivity.class);
-//                        startActivity(intentNight);
-                        recreate();
-                        refreshNightModeTitle();
-//                        overridePendingTransition(R.anim.start_anim,R.anim.out_anim);
-                        break;
+
+//                    case R.id.nav_theme:
+//                        isStartTheme = true;
+//                        Intent intentTheme = new Intent(HomeActivity.this,ThemeActivity.class);
+//                        startActivity(intentTheme);
+//                        break;
+//                  case R.id.nav_night_mode:
+//                        int preTheme = 0;
+//                        if(MyMusicUtil.getNightMode(HomeActivity.this)){
+//                            //当前为夜间模式，则恢复之前的主题
+//                            MyMusicUtil.setNightMode(HomeActivity.this,false);
+//                            preTheme = MyMusicUtil.getPreTheme(HomeActivity.this);
+//                            MyMusicUtil.setTheme(HomeActivity.this,preTheme);
+//                        }else {
+//                            //当前为白天模式，则切换到夜间模式
+//                            MyMusicUtil.setNightMode(HomeActivity.this,true);
+//                            MyMusicUtil.setTheme(HomeActivity.this,ThemeActivity.THEME_SIZE-1);
+//                        }
+////                        Intent intentNight = new Intent(HomeActivity.this,HomeActivity.class);
+////                        startActivity(intentNight);
+//                        recreate();
+//                        refreshNightModeTitle();
+////                        overridePendingTransition(R.anim.start_anim,R.anim.out_anim);
+//                        break;
                     case R.id.nav_about_me:
                         Intent aboutTheme = new Intent(HomeActivity.this,AboutActivity.class);
                         startActivity(aboutTheme);
@@ -135,13 +136,13 @@ public class HomeActivity extends PlayBarBaseActivity {
 
     }
 
-    private void refreshNightModeTitle(){
-        if (MyMusicUtil.getNightMode(HomeActivity.this)){
-            navView.getMenu().findItem(R.id.nav_night_mode).setTitle("日间模式");
-        }else {
-            navView.getMenu().findItem(R.id.nav_night_mode).setTitle("夜间模式");
-        }
-    }
+//    private void refreshNightModeTitle(){
+//        if (MyMusicUtil.getNightMode(HomeActivity.this)){
+//            navView.getMenu().findItem(R.id.nav_night_mode).setTitle("日间模式");
+//        }else {
+//            navView.getMenu().findItem(R.id.nav_night_mode).setTitle("夜间模式");
+//        }
+//    }
 
     @Override
     protected void onResume() {
