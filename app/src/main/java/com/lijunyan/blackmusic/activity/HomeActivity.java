@@ -236,7 +236,7 @@ public class HomeActivity extends PlayBarBaseActivity {
             public void onClick(View v) {
                 //展现我的歌单
                 if (isOpenMyPL){
-                    isOpenMyPL = false;
+                    isOpenMyPL = false;//切换状态
                     myPLArrowIv.setImageResource(R.drawable.arrow_right);
                     listView.setVisibility(View.GONE);
                 }else {

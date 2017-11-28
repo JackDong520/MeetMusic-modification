@@ -68,7 +68,9 @@ public class Constant {
 
 
 	//SharedPreferences key 常量
-	public static final String KEY_ID = "id";
+	//状态位用sharedPreferences 进行管理
+
+	public static final String KEY_ID = "id";  //音乐唯一标识符
 	public static final String KEY_PATH = "path";
 	public static final String KEY_MODE = "mode";
 	public static final String KEY_LIST = "list";

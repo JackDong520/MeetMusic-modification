@@ -19,10 +19,11 @@ import java.io.File;
 public class PlayerManagerReceiver extends BroadcastReceiver {
 
     private static final String TAG = PlayerManagerReceiver.class.getName();
+    //（最近最爱播放，音乐管理receiver，单曲列表 ， 收藏列表 利用这个请求  下面的）
     public static final String ACTION_UPDATE_UI_ADAPTER = "com.lijunyan.blackmusic.receiver.PlayerManagerReceiver:action_update_ui_adapter_broad_cast";
     private MediaPlayer mediaPlayer;
     private DBManager dbManager;
-    public static int status = Constant.STATUS_STOP;
+    public static int status = Constant.STATUS_STOP;//在播放管理器中对音乐的播放的状态进行读取
     private int playMode;
     private int threadNumber;
     private Context context;

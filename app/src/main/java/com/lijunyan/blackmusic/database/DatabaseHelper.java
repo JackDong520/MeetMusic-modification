@@ -13,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	//音乐表
 	public static final String MUSIC_TABLE = "music_table";
-
+    //音乐表中的具体数据项
 	public static final String ID_COLUMN = "id";
 	public static final String MUSIC_ID_COLUMN = "music_id";
 	public static final String NAME_COLUMN = "name";
@@ -68,7 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			+ "FOREIGN KEY(id) REFERENCES " + PLAY_LIST_TABLE + "(id) ON DELETE CASCADE,"
 			+ "FOREIGN KEY(music_id) REFERENCES "+ MUSIC_TABLE + " (id) ON DELETE CASCADE) ;";
 
-
+    //建立数据库连接
 	public DatabaseHelper(Context context) {
 		// 数据库实际被创建是在getWritableDatabase()或getReadableDatabase()方法调用时
 		super(context, DATABASE_NAME, null, VERSION);

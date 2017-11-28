@@ -29,6 +29,7 @@ import com.lijunyan.blackmusic.entity.PlayListInfo;
 import com.lijunyan.blackmusic.receiver.PlayerManagerReceiver;
 import com.lijunyan.blackmusic.service.MusicPlayerService;
 import com.lijunyan.blackmusic.util.Constant;
+import com.lijunyan.blackmusic.util.MyApplication;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 import com.lijunyan.blackmusic.view.MusicPopMenuWindow;
 import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
@@ -52,19 +53,27 @@ public class PlaylistActivity extends PlayBarBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playlist);
+
         loadBingPic();
         playListInfo = getIntent().getParcelableExtra("playlistInfo");
+
+
         toolbar = (Toolbar) findViewById(R.id.activity_playlist_toolbar);
         setSupportActionBar(toolbar);
+        //设置界面返回键
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        CollapsingToolbarLayout mCollapsingToolbarLayout = (CollapsingToolbarLayout)findViewById(R.id.collapsingToolbarLayout);
+
+        CollapsingToolbarLayout mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbarLayout);
         mCollapsingToolbarLayout.setTitle(playListInfo.getName());
+
         dbManager = DBManager.getInstance(this);
         musicInfoList = dbManager.getMusicListByPlaylist(playListInfo.getId());
+
         initView();
+
         register();
     }
 
@@ -79,7 +88,9 @@ public class PlaylistActivity extends PlayBarBaseActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(playlistAdapter);
+
         noneTv = (TextView)findViewById(R.id.activity_playlist_none_tv);
+       //判断歌曲列表的数据 如果为0这将noneTv设置为可见
         if (playListInfo.getCount() == 0){
             recyclerView.setVisibility(View.GONE);
             noneTv.setVisibility(View.VISIBLE);
@@ -99,8 +110,8 @@ public class PlaylistActivity extends PlayBarBaseActivity {
             @Override
             public void onDeleteMenuClick(View swipeView, int position) {
                 MusicInfo musicInfo = musicInfoList.get(position);
-                final int curId = musicInfo.getId();
-                final int musicId = MyMusicUtil.getIntShared(Constant.KEY_ID);
+                final int curId = musicInfo.getId();//删除音乐ID
+                final int musicId = MyMusicUtil.getIntShared(Constant.KEY_ID);//当前音乐ID
                 //从列表移除
                 int ret = dbManager.removeMusicFromPlaylist(musicInfo.getId(),playListInfo.getId());
                 if (ret > 0){
@@ -110,8 +121,8 @@ public class PlaylistActivity extends PlayBarBaseActivity {
                 }
                 if (curId == musicId) {
                     //移除的是当前播放的音乐
-                    Intent intent = new Intent(MusicPlayerService.PLAYER_MANAGER_ACTION);
-                    intent.putExtra(Constant.COMMAND, Constant.COMMAND_STOP);
+                    Intent intent = new Intent(MusicPlayerService.PLAYER_MANAGER_ACTION);//向MusicPlayerService发送Intent信息
+                    intent.putExtra(Constant.COMMAND, Constant.COMMAND_STOP);//信息内容
                     sendBroadcast(intent);
                 }
                 musicInfoList = dbManager.getMusicListByPlaylist(playListInfo.getId());
@@ -217,18 +228,21 @@ public class PlaylistActivity extends PlayBarBaseActivity {
             playlistAdapter.notifyDataSetChanged();
         }
     }
-
+//自己设置图片
     private void loadBingPic(){
-        try {
-            bgIv = (ImageView) findViewById(R.id.playlist_head_bg_iv);
-            String bingPic = MyMusicUtil.getBingShared();
-            if (bingPic != null) {
-                Glide.with(this).load(bingPic).into(bgIv);
-            } else {
-                bgIv.setImageResource(R.drawable.bg_playlist);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        bgIv = (ImageView) findViewById(R.id.playlist_head_bg_iv);
+       // Glide.with(MyApplication.getContext()).load(R.drawable.album).into(bgIv);
+        bgIv.setImageResource(R.drawable.bg_playlist);
+//        try {
+//            bgIv = (ImageView) findViewById(R.id.playlist_head_bg_iv);
+//            String bingPic = MyMusicUtil.getBingShared();
+//            if (bingPic != null) {
+//                Glide.with(this).load(bingPic).into(bgIv);
+//            } else {
+//                bgIv.setImageResource(R.drawable.bg_playlist);
+//            }
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
     }
 }

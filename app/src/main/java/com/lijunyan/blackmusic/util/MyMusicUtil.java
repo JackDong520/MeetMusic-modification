@@ -26,10 +26,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by lijunyan on 2017/2/8.
- */
 
+//对现在音乐的状态进行 操作
 public class MyMusicUtil {
 
     private static final String TAG = MyMusicUtil.class.getName();

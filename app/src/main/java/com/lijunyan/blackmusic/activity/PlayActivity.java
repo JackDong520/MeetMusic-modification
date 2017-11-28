@@ -95,21 +95,20 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         initPlayMode();
         initTitle();
         initPlayIv();
-
+        //对进度条进行监控
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
+            //该方法拖动进度条停止拖动的时候调用 然后对音乐进度进行处理
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-//                seekBar_touch = true;	//可以拖动标志
                 int musicId = MyMusicUtil.getIntShared(Constant.KEY_ID);
-                if (musicId == -1) {
-                    Intent intent = new Intent(MusicPlayerService.PLAYER_MANAGER_ACTION);
-                    intent.putExtra("cmd", Constant.COMMAND_STOP);
-                    sendBroadcast(intent);
-                    Toast.makeText(PlayActivity.this, "歌曲不存在", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
+                //更新 删除没必要的代码
+//                if (musicId == -1) {
+//                    Intent intent = new Intent(MusicPlayerService.PLAYER_MANAGER_ACTION);
+//                    intent.putExtra("cmd", Constant.COMMAND_STOP);
+//                    sendBroadcast(intent);
+//                    Toast.makeText(PlayActivity.this, "歌曲不存在", Toast.LENGTH_LONG).show();
+//                    return;
+//                }
                 //发送播放请求
                 Intent intent = new Intent(MusicPlayerService.PLAYER_MANAGER_ACTION);
                 intent.putExtra("cmd", Constant.COMMAND_PROGRESS);
@@ -121,7 +120,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
             public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
-
+            //进度条变化
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,
                                           boolean fromUser) {
@@ -156,7 +155,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-
+    //利用播放管理器对播放界面的按钮进行初始化
     private void initPlayIv(){
         int status = PlayerManagerReceiver.status;
         switch (status) {
@@ -174,6 +173,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
                 break;
         }
     }
+//     不知道什么意思    播放的类型？
 
     private void initPlayMode() {
         int playMode = MyMusicUtil.getIntShared(Constant.KEY_MODE);
@@ -182,13 +182,14 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         }
         modeIv.setImageLevel(playMode);
     }
-
+    //利用音乐标识  对播放界面标题进行初始化
     private void initTitle() {
         int musicId = MyMusicUtil.getIntShared(Constant.KEY_ID);
         if (musicId == -1) {
             musicNameTv.setText("听听音乐");
             singerNameTv.setText("好音质");
         } else {
+            //可能出现没有歌曲的情况
             musicNameTv.setText(dbManager.getMusicInfo(musicId).get(1));
             singerNameTv.setText(dbManager.getMusicInfo(musicId).get(2));
         }
@@ -215,6 +216,8 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         return pattern.replace("mm", mm).replace("ss", ss);
     }
 
+
+    //播放模式的选择
     private void switchPlayMode() {
         int playMode = MyMusicUtil.getIntShared(Constant.KEY_MODE);
         switch (playMode) {

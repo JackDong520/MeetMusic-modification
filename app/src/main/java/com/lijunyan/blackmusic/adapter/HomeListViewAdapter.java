@@ -77,7 +77,7 @@ public class HomeListViewAdapter extends BaseAdapter {
         }
         if (dataList.size() == 0){
             //展现默认的新建歌单列表
-            holder.listName.setText("新建歌单");
+            holder.listName.setText("新建歌单");//本来是隐藏的
             holder.listName.setGravity(Gravity.CENTER_VERTICAL);
             holder.listCount.setVisibility(View.GONE);
             ((SwipeMenuLayout)holder.swipView).setSwipeEnable(false);
@@ -163,7 +163,7 @@ public class HomeListViewAdapter extends BaseAdapter {
         dataList.addAll(playListInfos);
         notifyDataSetChanged();
         ((HomeActivity)activity).updatePlaylistCount();
-
+        //更新ListView中的数据 并提出更新
     }
 
     class Holder{
