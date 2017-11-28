@@ -37,7 +37,7 @@ public class AddPlaylistWindow extends PopupWindow {
     private View view;
     private Activity activity;
     private MusicInfo musicInfo;
-    private LinearLayout addLl;
+   //版本1.05删除添加歌曲的新建歌单 private LinearLayout addLl;
     private ListView listView;
     private Adapter adapter;
     private List<PlayListInfo> dataList;
@@ -72,7 +72,7 @@ public class AddPlaylistWindow extends PopupWindow {
         this.setBackgroundDrawable(activity.getResources().getDrawable(R.color.colorWhite));
 
         // 设置弹出窗体显示时的动画，从底部向上弹出
-        this.setAnimationStyle(R.style.pop_window_animation);
+       // 版本1.05this.setAnimationStyle(R.style.pop_window_animation);
 
         // 添加OnTouchListener监听判断获取触屏位置，如果在选择框外面则销毁弹出框
         this.view.setOnTouchListener(new View.OnTouchListener() {
@@ -92,36 +92,36 @@ public class AddPlaylistWindow extends PopupWindow {
         listView = (ListView)view.findViewById(R.id.pop_add_pl_lv);
         adapter = new Adapter();
         listView.setAdapter(adapter);
-
-        addLl = (LinearLayout)view.findViewById(R.id.pop_add_playlist_ll);
-        addLl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //添加歌单
-                final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                View view = LayoutInflater.from(activity).inflate(R.layout.dialog_create_playlist,null);
-                final EditText playlistEt = (EditText)view.findViewById(R.id.dialog_playlist_name_et);
-                builder.setView(view);
-                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String name = playlistEt.getText().toString();
-                        dbManager.createPlaylist(name);
-                        dialog.dismiss();
-                        adapter.updateDataList();
-                    }
-                });
-
-                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                builder.show();//配置好后再builder show
-            }
-        });
+//版本1.05
+//        addLl = (LinearLayout)view.findViewById(R.id.pop_add_playlist_ll);
+//        addLl.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //添加歌单
+//                final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+//                View view = LayoutInflater.from(activity).inflate(R.layout.dialog_create_playlist,null);
+//                final EditText playlistEt = (EditText)view.findViewById(R.id.dialog_playlist_name_et);
+//                builder.setView(view);
+//                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        String name = playlistEt.getText().toString();
+//                        dbManager.createPlaylist(name);
+//                        dialog.dismiss();
+//                        adapter.updateDataList();
+//                    }
+//                });
+//
+//                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//
+//                builder.show();//配置好后再builder show
+//            }
+//        });
     }
 
     private class Adapter extends BaseAdapter {
