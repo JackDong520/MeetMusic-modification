@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.lijunyan.blackmusic.R;
 import com.lijunyan.blackmusic.database.DBManager;
-
+import com.lijunyan.blackmusic.util.HttpUtil;
 import com.lijunyan.blackmusic.util.MyApplication;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 
@@ -75,7 +75,7 @@ public class WelcomeActivity extends BaseActivity {
 //        });
 //    }
     private void loadBingPic() {
-        Glide.with(MyApplication.getContext()).load(R.drawable.album).into(bingIv);
+        bingIv.setImageResource(R.drawable.bg_playlist);
     }
 
 
