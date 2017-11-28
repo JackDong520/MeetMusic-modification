@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.lijunyan.blackmusic.R;
-import com.lijunyan.blackmusic.fragment.SingerFragment;
+//import com.lijunyan.blackmusic.fragment.SingerFragment;
 import com.lijunyan.blackmusic.fragment.SingleFragment;
 import com.lijunyan.blackmusic.util.Constant;
 import com.lijunyan.blackmusic.view.MyViewPager;
@@ -33,7 +33,7 @@ public class LocalMusicActivity extends PlayBarBaseActivity {
     private List<String> titleList = new ArrayList<>(4);
     private List<Fragment> fragments = new ArrayList<>(4);
     private SingleFragment singleFragment;
-    private SingerFragment singerFragment;
+   // private SingerFragment singerFragment;
     //private AlbumFragment albumFragment;
     //private FolderFragment folderFragment;
     private TextView nothingTv;
@@ -100,10 +100,10 @@ public class LocalMusicActivity extends PlayBarBaseActivity {
             singleFragment = new SingleFragment();
             fragments.add(singleFragment);
         }
-        if (singerFragment == null) {
-            singerFragment = new SingerFragment();
-            fragments.add(singerFragment);
-        }
+//        if (singerFragment == null) {
+//            singerFragment = new SingerFragment();
+//            fragments.add(singerFragment);
+//        }
         //1.08删除Frament中的专辑和文件分类
 //        if (albumFragment == null) {
 //            albumFragment = new AlbumFragment();

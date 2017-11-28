@@ -17,7 +17,7 @@ import com.lijunyan.blackmusic.database.DBManager;
 //import com.lijunyan.blackmusic.entity.AlbumInfo;
 //import com.lijunyan.blackmusic.entity.FolderInfo;
 import com.lijunyan.blackmusic.entity.MusicInfo;
-import com.lijunyan.blackmusic.entity.SingerInfo;
+//import com.lijunyan.blackmusic.entity.SingerInfo;
 import com.lijunyan.blackmusic.service.MusicPlayerService;
 
 import java.io.File;
@@ -208,30 +208,30 @@ public class MyMusicUtil {
     }
 
     //按歌手分组
-    public static ArrayList<SingerInfo> groupBySinger(ArrayList list) {
-        Map<String, List<MusicInfo>> musicMap = new HashMap<>();
-        ArrayList<SingerInfo> singerInfoList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            MusicInfo musicInfo = (MusicInfo) list.get(i);
-            if (musicMap.containsKey(musicInfo.getSinger())) {
-                ArrayList singerList = (ArrayList) musicMap.get(musicInfo.getSinger());
-                singerList.add(musicInfo);
-            } else {
-                ArrayList temp = new ArrayList();
-                temp.add(musicInfo);
-                musicMap.put(musicInfo.getSinger(), temp);
-            }
-        }
-
-        for (Map.Entry<String,List<MusicInfo>> entry : musicMap.entrySet()) {
-            System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
-            SingerInfo singerInfo = new SingerInfo();
-            singerInfo.setName(entry.getKey());
-            singerInfo.setCount(entry.getValue().size());
-            singerInfoList.add(singerInfo);
-        }
-        return singerInfoList;
-    }
+//    public static ArrayList<SingerInfo> groupBySinger(ArrayList list) {
+//        Map<String, List<MusicInfo>> musicMap = new HashMap<>();
+//        ArrayList<SingerInfo> singerInfoList = new ArrayList<>();
+//        for (int i = 0; i < list.size(); i++) {
+//            MusicInfo musicInfo = (MusicInfo) list.get(i);
+//            if (musicMap.containsKey(musicInfo.getSinger())) {
+//                ArrayList singerList = (ArrayList) musicMap.get(musicInfo.getSinger());
+//                singerList.add(musicInfo);
+//            } else {
+//                ArrayList temp = new ArrayList();
+//                temp.add(musicInfo);
+//                musicMap.put(musicInfo.getSinger(), temp);
+//            }
+//        }
+//
+//        for (Map.Entry<String,List<MusicInfo>> entry : musicMap.entrySet()) {
+//            System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
+//            SingerInfo singerInfo = new SingerInfo();
+//            singerInfo.setName(entry.getKey());
+//            singerInfo.setCount(entry.getValue().size());
+//            singerInfoList.add(singerInfo);
+//        }
+//        return singerInfoList;
+//   }
 
 //    //按专辑分组
 //    public static ArrayList<AlbumInfo> groupByAlbum(ArrayList list) {

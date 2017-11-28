@@ -63,10 +63,6 @@
             android:name=".activity.PlaylistActivity"
             android:screenOrientation="portrait"
             android:theme="@style/PlaylistActivityTheme" />
-        <activity
-            android:name=".activity.ModelActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
 
         <activity android:name=".activity.AboutActivity"
             android:label="@string/about"></activity>

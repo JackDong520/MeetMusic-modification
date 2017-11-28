@@ -2,6 +2,7 @@ package com.lijunyan.blackmusic.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -84,14 +85,15 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.ViewHo
         holder.musicName.setText(musicInfo.getName());
         holder.musicIndex.setText("" + (position + 1));
         holder.musicSinger.setText(musicInfo.getSinger());
-        if (musicInfo.getId() == MyMusicUtil.getIntShared(Constant.KEY_ID)){
-            holder.musicName.setTextColor(context.getResources().getColor(R.color.colorAccent));
-            holder.musicIndex.setTextColor(context.getResources().getColor(R.color.colorAccent));
-            holder.musicSinger.setTextColor(context.getResources().getColor(R.color.colorAccent));
-        }else {
-            holder.musicName.setTextColor(context.getResources().getColor(R.color.grey700));
-            holder.musicIndex.setTextColor(context.getResources().getColor(R.color.grey700));
-            holder.musicSinger.setTextColor(context.getResources().getColor(R.color.grey700));
+        //更新 播放时对字体的颜色进行改变
+        if (musicInfo.getId() == MyMusicUtil.getIntShared(Constant.KEY_ID)) {
+            holder.musicName.setTextColor(Color.BLUE);
+            holder.musicIndex.setTextColor(Color.BLUE);
+            holder.musicSinger.setTextColor(Color.BLUE);
+        } else {
+            holder.musicName.setTextColor(Color.GRAY);
+            holder.musicIndex.setTextColor(Color.GRAY);
+            holder.musicSinger.setTextColor(Color.GRAY);
         }
 
         holder.contentLl.setOnClickListener(new View.OnClickListener() {
