@@ -34,7 +34,7 @@ import com.lijunyan.blackmusic.service.MusicPlayerService;
 import com.lijunyan.blackmusic.util.Constant;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 import com.lijunyan.blackmusic.view.MusicPopMenuWindow;
-import com.lijunyan.blackmusic.view.SideBar;
+
 import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 
 import java.io.File;
@@ -53,7 +53,7 @@ public class SingleFragment extends Fragment {
     private ImageView playModeIv;
     private TextView playModeTv;
     private RecyclerView recyclerView;
-    private SideBar sideBar;
+    //private SideBar sideBar;
     private TextView sideBarPreTv;
     public  RecyclerViewAdapter recyclerViewAdapter;
     private List<MusicInfo> musicInfoList = new ArrayList<>();
@@ -154,20 +154,21 @@ public class SingleFragment extends Fragment {
                 initPlayMode();
             }
         });
-        sideBarPreTv = (TextView) view.findViewById(R.id.local_music_siderbar_pre_tv);
-        sideBar = (SideBar)view.findViewById(R.id.local_music_siderbar);
-        sideBar.setTextView(sideBarPreTv);
-        sideBar.setOnListener(new SideBar.OnTouchingLetterChangedListener() {
-            @Override
-            public void onTouchingLetterChanged(String letter) {
-                Log.i(TAG, "onTouchingLetterChanged: letter = "+letter);
-                //该字母首次出现的位置
-                int position = recyclerViewAdapter.getPositionForSection(letter.charAt(0));
-                if(position != -1){
-                    recyclerView.smoothScrollToPosition(position);
-                }
-            }
-        });
+        //版本1.02
+//        sideBarPreTv = (TextView) view.findViewById(R.id.local_music_siderbar_pre_tv);
+//        sideBar = (SideBar)view.findViewById(R.id.local_music_siderbar);
+//        sideBar.setTextView(sideBarPreTv);
+//        sideBar.setOnListener(new SideBar.OnTouchingLetterChangedListener() {
+//            @Override
+//            public void onTouchingLetterChanged(String letter) {
+//                Log.i(TAG, "onTouchingLetterChanged: letter = "+letter);
+//                //该字母首次出现的位置
+//                int position = recyclerViewAdapter.getPositionForSection(letter.charAt(0));
+//                if(position != -1){
+//                    recyclerView.smoothScrollToPosition(position);
+//                }
+//            }
+//        });
         return view;
     }
 
@@ -201,11 +202,11 @@ public class SingleFragment extends Fragment {
         recyclerViewAdapter.updateMusicInfoList(musicInfoList);
         Log.d(TAG, "updateView: musicInfoList.size() = "+musicInfoList.size());
         if (musicInfoList.size() == 0){
-            sideBar.setVisibility(View.GONE);
+           //版本1.02 sideBar.setVisibility(View.GONE);
             playModeRl.setVisibility(View.GONE);
             recyclerView.setVisibility(View.GONE);
         }else {
-            sideBar.setVisibility(View.VISIBLE);
+            //版本1.02sideBar.setVisibility(View.VISIBLE);
             playModeRl.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
         }

@@ -35,7 +35,6 @@ import com.lijunyan.blackmusic.service.MusicPlayerService;
 import com.lijunyan.blackmusic.util.Constant;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 import com.lijunyan.blackmusic.view.MusicPopMenuWindow;
-import com.lijunyan.blackmusic.view.SideBar;
 import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 
 import java.io.File;
@@ -55,7 +54,7 @@ public class LastMyloveActivity extends PlayBarBaseActivity {
     private ImageView playModeIv;
     private TextView playModeTv;
     private RecyclerView recyclerView;
-    private SideBar sideBar;
+   //版本1.02 private SideBar sideBar;
     public  RecyclerViewAdapter recyclerViewAdapter;
     private List<MusicInfo> musicInfoList = new ArrayList<>();
     private DBManager dbManager;
@@ -130,19 +129,19 @@ public class LastMyloveActivity extends PlayBarBaseActivity {
                 return false;
             }
         });
-
-        sideBar = (SideBar) findViewById(R.id.last_mylove_music_siderbar);
-        sideBar.setOnListener(new SideBar.OnTouchingLetterChangedListener() {
-            @Override
-            public void onTouchingLetterChanged(String letter) {
-                Log.i(TAG, "onTouchingLetterChanged: letter = " + letter);
-                //该字母首次出现的位置
-                int position = recyclerViewAdapter.getPositionForSection(letter.charAt(0));
-                if (position != -1) {
-                    recyclerView.smoothScrollToPosition(position);
-                }
-            }
-        });
+//版本1.02
+//        sideBar = (SideBar) findViewById(R.id.last_mylove_music_siderbar);
+//        sideBar.setOnListener(new SideBar.OnTouchingLetterChangedListener() {
+//            @Override
+//            public void onTouchingLetterChanged(String letter) {
+//                Log.i(TAG, "onTouchingLetterChanged: letter = " + letter);
+//                //该字母首次出现的位置
+//                int position = recyclerViewAdapter.getPositionForSection(letter.charAt(0));
+//                if (position != -1) {
+//                    recyclerView.smoothScrollToPosition(position);
+//                }
+//            }
+//        });
 
         playModeRl = (RelativeLayout)findViewById(R.id.last_mylove_playmode_rl);
         playModeIv = (ImageView)findViewById(R.id.last_mylove_playmode_iv);
@@ -231,11 +230,11 @@ public class LastMyloveActivity extends PlayBarBaseActivity {
             recyclerViewAdapter.updateMusicInfoList(musicInfoList);
 
             if (musicInfoList.size() == 0) {
-                sideBar.setVisibility(View.GONE);
+                //版本1.02  sideBar.setVisibility(View.GONE);
                 playModeRl.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.GONE);
             } else {
-                sideBar.setVisibility(View.VISIBLE);
+                //版本1.02 sideBar.setVisibility(View.VISIBLE);
                 playModeRl.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.VISIBLE);
             }

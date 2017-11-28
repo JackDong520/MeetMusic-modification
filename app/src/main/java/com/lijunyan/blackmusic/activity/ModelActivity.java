@@ -34,7 +34,6 @@ import com.lijunyan.blackmusic.service.MusicPlayerService;
 import com.lijunyan.blackmusic.util.Constant;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 import com.lijunyan.blackmusic.view.MusicPopMenuWindow;
-import com.lijunyan.blackmusic.view.SideBar;
 import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 
 import java.util.ArrayList;
@@ -55,7 +54,7 @@ public class ModelActivity extends PlayBarBaseActivity {
     private String title;
     private RecyclerView recyclerView;
     private ModelAdapter adapter;
-    private SideBar sideBar;
+    //private SideBar sideBar;版本1.02
     private RelativeLayout playModeRl;
     private ImageView playModeIv;
     private TextView playModeTv;
@@ -141,19 +140,19 @@ public class ModelActivity extends PlayBarBaseActivity {
             }
         });
 
-
-        sideBar = (SideBar) findViewById(R.id.model_music_siderbar);
-        sideBar.setOnListener(new SideBar.OnTouchingLetterChangedListener() {
-            @Override
-            public void onTouchingLetterChanged(String letter) {
-                Log.i(TAG, "onTouchingLetterChanged: letter = " + letter);
-                //该字母首次出现的位置
-                int position = adapter.getPositionForSection(letter.charAt(0));
-                if (position != -1) {
-                    recyclerView.smoothScrollToPosition(position);
-                }
-            }
-        });
+//       版本1.02
+//        sideBar = (SideBar) findViewById(R.id.model_music_siderbar);
+//        sideBar.setOnListener(new SideBar.OnTouchingLetterChangedListener() {
+//            @Override
+//            public void onTouchingLetterChanged(String letter) {
+//                Log.i(TAG, "onTouchingLetterChanged: letter = " + letter);
+//                //该字母首次出现的位置
+//                int position = adapter.getPositionForSection(letter.charAt(0));
+//                if (position != -1) {
+//                    recyclerView.smoothScrollToPosition(position);
+//                }
+//            }
+//        });
 
 
         playModeRl = (RelativeLayout) findViewById(R.id.model_music_playmode_rl);
@@ -222,11 +221,11 @@ public class ModelActivity extends PlayBarBaseActivity {
         Collections.sort(musicInfoList);
         adapter.notifyDataSetChanged();
         if (musicInfoList.size() == 0) {
-            sideBar.setVisibility(View.GONE);
+            //       版本1.02 sideBar.setVisibility(View.GONE);
             playModeRl.setVisibility(View.GONE);
             recyclerView.setVisibility(View.GONE);
         } else {
-            sideBar.setVisibility(View.VISIBLE);
+            //       版本1.02 sideBar.setVisibility(View.VISIBLE);
             playModeRl.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.VISIBLE);
         }
