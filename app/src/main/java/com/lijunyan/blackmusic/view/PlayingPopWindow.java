@@ -65,7 +65,7 @@ public class PlayingPopWindow extends PopupWindow{
         // 设置弹出窗体的背景
         this.setBackgroundDrawable(activity.getResources().getDrawable(R.color.colorWhite));
         // 设置弹出窗体显示时的动画，从底部向上弹出
-        this.setAnimationStyle(R.style.pop_window_animation);
+       this.setAnimationStyle(R.style.pop_window_animation);
 
         // 添加OnTouchListener监听判断获取触屏位置，如果在选择框外面则销毁弹出框
         this.view.setOnTouchListener(new View.OnTouchListener() {
