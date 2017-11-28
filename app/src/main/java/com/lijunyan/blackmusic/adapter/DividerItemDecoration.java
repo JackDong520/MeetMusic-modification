@@ -31,6 +31,8 @@ import android.view.View;
  * <p/>
  * See the license above for details.
  */
+
+//1.09  删除没必要的Adapter
 public class DividerItemDecoration extends RecyclerView.ItemDecoration
 {
 

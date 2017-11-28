@@ -26,7 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lijunyan.blackmusic.R;
-import com.lijunyan.blackmusic.adapter.DividerItemDecoration;
+//import com.lijunyan.blackmusic.adapter.DividerItemDecoration;
 import com.lijunyan.blackmusic.adapter.RecyclerViewAdapter;
 import com.lijunyan.blackmusic.database.DBManager;
 import com.lijunyan.blackmusic.entity.MusicInfo;
@@ -88,8 +88,8 @@ public class LastMyloveActivity extends PlayBarBaseActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
         //设置Item增加、移除动画
 //        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(
-                LastMyloveActivity.this, DividerItemDecoration.VERTICAL_LIST));
+       // recyclerView.addItemDecoration(new DividerItemDecoration(
+       //         LastMyloveActivity.this, DividerItemDecoration.VERTICAL_LIST));
         recyclerView.setAdapter(recyclerViewAdapter);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
