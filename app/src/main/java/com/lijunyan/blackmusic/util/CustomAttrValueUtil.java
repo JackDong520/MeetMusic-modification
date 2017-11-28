@@ -6,7 +6,7 @@ import android.content.res.TypedArray;
 /**
  * Created by lijunyan on 2017/6/3.
  */
-
+//1.07删除从系统中调出颜色
 public class CustomAttrValueUtil {
 
     /**

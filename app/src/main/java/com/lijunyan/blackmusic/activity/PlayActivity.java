@@ -91,7 +91,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         nextIv.setOnClickListener(this);
         modeIv.setOnClickListener(this);
 
-        setSeekBarBg();
+       // setSeekBarBg();
         initPlayMode();
         initTitle();
         initPlayIv();
@@ -230,18 +230,18 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         }
         initPlayMode();
     }
-
-    private void setSeekBarBg(){
-        try {
-            int progressColor = CustomAttrValueUtil.getAttrColorValue(R.attr.colorPrimary,R.color.colorAccent,this);
-            LayerDrawable layerDrawable = (LayerDrawable) seekBar.getProgressDrawable();
-            ScaleDrawable scaleDrawable = (ScaleDrawable)layerDrawable.findDrawableByLayerId(android.R.id.progress);
-            GradientDrawable drawable = (GradientDrawable) scaleDrawable.getDrawable();
-            drawable.setColor(progressColor);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+//1.07 删除 播放界面进度条的背景 设置
+//    private void setSeekBarBg(){
+//        try {
+//            int progressColor = CustomAttrValueUtil.getAttrColorValue(R.attr.colorPrimary,R.color.colorAccent,this);
+//            LayerDrawable layerDrawable = (LayerDrawable) seekBar.getProgressDrawable();
+//            ScaleDrawable scaleDrawable = (ScaleDrawable)layerDrawable.findDrawableByLayerId(android.R.id.progress);
+//            GradientDrawable drawable = (GradientDrawable) scaleDrawable.getDrawable();
+//            drawable.setColor(progressColor);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 
     private void play() {
         int musicId;

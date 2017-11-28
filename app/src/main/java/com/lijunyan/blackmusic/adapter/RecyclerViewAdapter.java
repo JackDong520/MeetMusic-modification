@@ -2,6 +2,7 @@ package com.lijunyan.blackmusic.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -121,23 +122,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 //        int appbg = typedArray.getColor(0, defaultColor);
 //        typedArray.recycle();
 
-        int appbg = CustomAttrValueUtil.getAttrColorValue(R.attr.colorAccent,0xFFFA7298,context);
-        int defaultTvColor = CustomAttrValueUtil.getAttrColorValue(R.attr.text_color,R.color.grey700,context);
+// 1.07 删除从系统调用字幕背景色 改为自行设置
+   //     int appbg = CustomAttrValueUtil.getAttrColorValue(R.attr.colorAccent,0xFFFA7298,context);
+     //   int defaultTvColor = CustomAttrValueUtil.getAttrColorValue(R.attr.text_color,R.color.grey700,context);
 
-//        int[] attrs = {R.attr.text_color};
-//        TypedArray typed = context.obtainStyledAttributes(attrs);
-//        int defaultTvColor = typed.getColor(0, context.getResources().getColor(R.color.grey700));
-//        typedArray.recycle();
 
-        if (musicInfo.getId() == MyMusicUtil.getIntShared(Constant.KEY_ID)){
-            holder.musicName.setTextColor(appbg);
-            holder.musicIndex.setTextColor(appbg);
-            holder.musicSinger.setTextColor(appbg);
-        }else {
-            holder.musicName.setTextColor(defaultTvColor);
-            holder.musicIndex.setTextColor(context.getResources().getColor(R.color.grey700));
-            holder.musicSinger.setTextColor(context.getResources().getColor(R.color.grey700));
+        if (musicInfo.getId() == MyMusicUtil.getIntShared(Constant.KEY_ID)) {
+            holder.musicName.setTextColor(Color.BLUE);
+            holder.musicIndex.setTextColor(Color.BLUE);
+            holder.musicSinger.setTextColor(Color.BLUE);
+        } else {
+            holder.musicName.setTextColor(Color.GRAY);
+            holder.musicIndex.setTextColor(Color.GRAY);
+            holder.musicSinger.setTextColor(Color.GRAY);
         }
+
         int section = getSectionForPosition(position);
         int firstPosition = getPositionForSection(section);
 //        Log.i(TAG, "onBindViewHolder: section = "+section + "  firstPosition = "+firstPosition);
@@ -196,6 +195,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void setOnItemClickListener(OnItemClickListener onItemClickListener){
         this.onItemClickListener = onItemClickListener ;
     }
+
 
 
 }
