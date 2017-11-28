@@ -29,7 +29,7 @@ import com.lijunyan.blackmusic.service.MusicPlayerService;
 import com.lijunyan.blackmusic.util.Constant;
 import com.lijunyan.blackmusic.util.CustomAttrValueUtil;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
-import com.lijunyan.blackmusic.view.PlayingPopWindow;
+//import com.lijunyan.blackmusic.view.PlayingPopWindow;
 
 import java.util.Locale;
 
@@ -43,7 +43,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
 
     private ImageView backIv;
     private ImageView playIv;
-    private ImageView menuIv;
+   //版本1.03 private ImageView menuIv;
     private ImageView preIv;
     private ImageView nextIv;
     private ImageView modeIv;
@@ -75,7 +75,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
     private void initView() {
         backIv = (ImageView) findViewById(R.id.iv_back);
         playIv = (ImageView) findViewById(R.id.iv_play);
-        menuIv = (ImageView) findViewById(R.id.iv_menu);
+        //版本1.03 menuIv = (ImageView) findViewById(R.id.iv_menu);
         preIv = (ImageView) findViewById(R.id.iv_prev);
         nextIv = (ImageView) findViewById(R.id.iv_next);
         modeIv = (ImageView) findViewById(R.id.iv_mode);
@@ -86,7 +86,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         seekBar = (SeekBar) findViewById(R.id.activity_play_seekbar);
         backIv.setOnClickListener(this);
         playIv.setOnClickListener(this);
-        menuIv.setOnClickListener(this);
+//版本1.03        menuIv.setOnClickListener(this);
         preIv.setOnClickListener(this);
         nextIv.setOnClickListener(this);
         modeIv.setOnClickListener(this);
@@ -149,9 +149,10 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
             case R.id.iv_prev:
                 MyMusicUtil.playPreMusic(this);
                 break;
-            case R.id.iv_menu:
-                showPopFormBottom();
-                break;
+            //版本1.03
+//            case R.id.iv_menu:
+//                showPopFormBottom();
+//                break;
         }
     }
 
@@ -272,24 +273,24 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
             sendBroadcast(intent);
         }
     }
-
-    public void showPopFormBottom() {
-        PlayingPopWindow playingPopWindow = new PlayingPopWindow(PlayActivity.this);
-        playingPopWindow.showAtLocation(findViewById(R.id.activity_play), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
-        WindowManager.LayoutParams params = getWindow().getAttributes();
-        params.alpha=0.7f;
-        getWindow().setAttributes(params);
-
-        playingPopWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                WindowManager.LayoutParams params = getWindow().getAttributes();
-                params.alpha=1f;
-                getWindow().setAttributes(params);
-            }
-        });
-
-    }
+//版本1.03
+//    public void showPopFormBottom() {
+//        PlayingPopWindow playingPopWindow = new PlayingPopWindow(PlayActivity.this);
+//        playingPopWindow.showAtLocation(findViewById(R.id.activity_play), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+//        WindowManager.LayoutParams params = getWindow().getAttributes();
+//        params.alpha=0.7f;
+//        getWindow().setAttributes(params);
+//
+//        playingPopWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+//            @Override
+//            public void onDismiss() {
+//                WindowManager.LayoutParams params = getWindow().getAttributes();
+//                params.alpha=1f;
+//                getWindow().setAttributes(params);
+//            }
+//        });
+//
+//    }
 
     @Override
     protected void onDestroy() {

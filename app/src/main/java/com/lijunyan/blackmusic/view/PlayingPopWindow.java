@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by lijunyan on 2017/4/5.
  */
-
+//版本1.03
 public class PlayingPopWindow extends PopupWindow{
     
     private static final String TAG = PlayingPopWindow.class.getName();

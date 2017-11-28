@@ -29,7 +29,7 @@ import com.lijunyan.blackmusic.receiver.PlayerManagerReceiver;
 import com.lijunyan.blackmusic.service.MusicPlayerService;
 import com.lijunyan.blackmusic.util.Constant;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
-import com.lijunyan.blackmusic.view.PlayingPopWindow;
+//版本1.03import com.lijunyan.blackmusic.view.PlayingPopWindow;
 
 import static com.lijunyan.blackmusic.receiver.PlayerManagerReceiver.status;
 
@@ -45,7 +45,7 @@ public class PlayBarFragment extends Fragment {
     private ImageView playIv;
     private SeekBar seekBar;
     private ImageView nextIv;
-    private ImageView menuIv;
+    //版本1.03private ImageView menuIv;
     private TextView musicNameTv;
     private TextView singerNameTv;
     private TextView defaultNameTv;
@@ -80,7 +80,7 @@ public class PlayBarFragment extends Fragment {
         playBarLl = (LinearLayout) view.findViewById(R.id.home_activity_playbar_ll);
         seekBar = (SeekBar) view.findViewById(R.id.home_seekbar);
         playIv = (ImageView)view.findViewById(R.id.play_iv);
-        menuIv = (ImageView)view.findViewById(R.id.play_menu_iv);
+        //版本1.03   menuIv = (ImageView)view.findViewById(R.id.play_menu_iv);
         nextIv = (ImageView)view.findViewById(R.id.next_iv);
         musicNameTv = (TextView) view.findViewById(R.id.home_music_name_tv);
         singerNameTv = (TextView) view.findViewById(R.id.home_singer_name_tv);
@@ -135,36 +135,36 @@ public class PlayBarFragment extends Fragment {
                 MyMusicUtil.playNextMusic(getActivity());
             }
         });
-
-        menuIv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showPopFormBottom();
-            }
-        });
+//版本1.03
+//        menuIv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showPopFormBottom();
+//            }
+//        });
         return view;
     }
-
-    public void showPopFormBottom() {
-        PlayingPopWindow playingPopWindow = new PlayingPopWindow(getActivity());
-//      设置Popupwindow显示位置（从底部弹出）
-        playingPopWindow.showAtLocation(view, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
-        WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
-        //当弹出Popupwindow时，背景变半透明
-        params.alpha=0.7f;
-        getActivity().getWindow().setAttributes(params);
-
-        //设置Popupwindow关闭监听，当Popupwindow关闭，背景恢复1f
-        playingPopWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
-            @Override
-            public void onDismiss() {
-                WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
-                params.alpha=1f;
-                getActivity().getWindow().setAttributes(params);
-            }
-        });
-
-    }
+//版本1.03
+//    public void showPopFormBottom() {
+//        PlayingPopWindow playingPopWindow = new PlayingPopWindow(getActivity());
+////      设置Popupwindow显示位置（从底部弹出）
+//        playingPopWindow.showAtLocation(view, Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+//        WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
+//        //当弹出Popupwindow时，背景变半透明
+//        params.alpha=0.7f;
+//        getActivity().getWindow().setAttributes(params);
+//
+//        //设置Popupwindow关闭监听，当Popupwindow关闭，背景恢复1f
+//        playingPopWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+//            @Override
+//            public void onDismiss() {
+//                WindowManager.LayoutParams params = getActivity().getWindow().getAttributes();
+//                params.alpha=1f;
+//                getActivity().getWindow().setAttributes(params);
+//            }
+//        });
+//
+//    }
 
     @Override
     public void onResume() {

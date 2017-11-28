@@ -148,15 +148,15 @@
                     android:layout_toRightOf="@id/iv_play"
                     android:src="@drawable/play_btn_next_selector" />
 
-                <ImageView
-                    android:id="@+id/iv_menu"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="16dp"
-                    android:layout_centerVertical="true"
-                    android:padding="10dp"
-                    android:src="@drawable/selector_menu"/>
+                <!--<ImageView-->
+                    <!--android:id="@+id/iv_menu"-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_marginRight="16dp"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:padding="10dp"-->
+                    <!--android:src="@drawable/selector_menu"/>版本1.03-->
 
                 <ImageView
                     android:id="@+id/iv_mode"
