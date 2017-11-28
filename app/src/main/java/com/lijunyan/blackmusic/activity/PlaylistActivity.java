@@ -29,7 +29,6 @@ import com.lijunyan.blackmusic.entity.PlayListInfo;
 import com.lijunyan.blackmusic.receiver.PlayerManagerReceiver;
 import com.lijunyan.blackmusic.service.MusicPlayerService;
 import com.lijunyan.blackmusic.util.Constant;
-import com.lijunyan.blackmusic.util.MyApplication;
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 import com.lijunyan.blackmusic.view.MusicPopMenuWindow;
 import com.mcxtzhang.swipemenulib.SwipeMenuLayout;

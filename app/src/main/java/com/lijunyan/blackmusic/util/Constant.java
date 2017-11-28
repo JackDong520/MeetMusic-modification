@@ -72,7 +72,7 @@ public class Constant {
 
 	public static final String KEY_ID = "id";  //音乐唯一标识符
 	public static final String KEY_PATH = "path";
-	public static final String KEY_MODE = "mode";
+	public static final String KEY_MODE = "mode";//播放类型
 	public static final String KEY_LIST = "list";
 	public static final String KEY_LIST_ID = "list_id";
 	public static final String KEY_CURRENT = "current";
@@ -99,24 +99,8 @@ public class Constant {
 	public static final int LIST_FOLDER = 10007;	//文件夹
 
 
-	//ReceiverForMain.action
-	public static final String UPDATE_MAIN_ACTIVITY ="MainActivityToReceiver.action";
 	//MediaPlayerManager.action
 	public static final String MP_FILTER = "com.example.vinyl.start_mediaplayer";
-	//WidgetUtil.action
-	public static final String UPDATE_WIDGET = "android.intent.ACTION_WIDGET";
-	//UpdateWidget.action
-	public static final String WIDGET_STATUS = "android.appwidget.action.WIDGET_STATUS";
-	public static final String WIDGET_SEEK = "android.appwidget.action.WIDGET_SEEK";
-	//
-	public static final String MUSIC_CONTROL = "kugoumusic.ACTION_CONTROL";
-	public static final String UPDATE_STATUS = "kugoumusic.ACTION_STATUS";
-
-	//widget播放控制
-	public static final String WIDGET_PLAY="android.appwidget.WIDGET_PLAY";
-	public static final String WIDGET_NEXT="android.appwidget.WIDGET_NEXT";
-	public static final String WIDGET_PREVIOUS="android.appwidget.WIDGET_PREVIOUS";
-
 
 	//主题
 	public static final String THEME="theme";

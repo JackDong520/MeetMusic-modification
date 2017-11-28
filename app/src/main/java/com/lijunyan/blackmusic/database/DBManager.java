@@ -503,6 +503,7 @@ public class DBManager {
             case Constant.LIST_MYLOVE:
                 cursor = db.query(DatabaseHelper.MUSIC_TABLE, null, DatabaseHelper.LOVE_COLUMN + " = ?", new String[]{"" + 1}, null, null, null);
                 break;
+            //按组队music进行分类
             case Constant.LIST_PLAYLIST:
                 int listId = MyMusicUtil.getIntShared(Constant.KEY_LIST_ID);
                 list = getMusicIdListByPlaylist(listId);

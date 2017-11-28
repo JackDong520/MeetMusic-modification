@@ -30,7 +30,7 @@ import com.lijunyan.blackmusic.entity.PlayListInfo;
 import com.lijunyan.blackmusic.service.MusicPlayerService;
 import com.lijunyan.blackmusic.util.Constant;
 
-import com.lijunyan.blackmusic.util.MyApplication;
+
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 
 import java.io.IOException;

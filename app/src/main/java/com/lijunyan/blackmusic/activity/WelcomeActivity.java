@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 import com.lijunyan.blackmusic.R;
 import com.lijunyan.blackmusic.database.DBManager;
 import com.lijunyan.blackmusic.util.HttpUtil;
-import com.lijunyan.blackmusic.util.MyApplication;
+
 import com.lijunyan.blackmusic.util.MyMusicUtil;
 
 import java.io.IOException;

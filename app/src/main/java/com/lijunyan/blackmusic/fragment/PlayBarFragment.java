@@ -33,10 +33,6 @@ import com.lijunyan.blackmusic.util.MyMusicUtil;
 
 import static com.lijunyan.blackmusic.receiver.PlayerManagerReceiver.status;
 
-/**
- * Created by lijunyan on 2017/3/12.
- */
-
 public class PlayBarFragment extends Fragment {
 
     private static final String TAG = "PlayBarFragment";
